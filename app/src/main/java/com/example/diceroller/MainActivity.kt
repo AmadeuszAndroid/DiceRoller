@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * Ta aktywność pozwala użytkownikowi rzucać kostką i wyświetlać rezultat
+ * Ta aktywność pozwala użytkownikowi rzucać kostkami i wyświetlać rezultat
  * na ekranie.
  */
 class MainActivity : AppCompatActivity() {
@@ -20,16 +20,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Rzuć kostką i wyświetl rezultat na ekranie.
+     * Rzuć kostkami i wyświetl rezultat na ekranie.
      */
     private fun rollDice() {
-        // Tworzenie kostki 6-ściennej i rzucenie nią.
+        // Tworzenie dwóch kostek 6-ściennych i rzucenie nimi.
         val dice = Dice(6)
         val diceRoll = dice.roll()
+        val upDice = Dice(6)
+        val upDiceRoll = upDice.roll()
 
-        // Aktualizacja ekranu o rzut kostką.
+        // Aktualizacja ekranu o rzut kostkami.
         val resultTextView: TextView = findViewById(R.id.textView)
         resultTextView.text = diceRoll.toString()
+        val upTextView: TextView = findViewById(R.id.textView2)
+        upTextView.text = upDiceRoll.toString()
     }
 }
 
