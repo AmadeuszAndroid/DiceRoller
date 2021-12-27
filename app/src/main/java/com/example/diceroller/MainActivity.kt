@@ -1,11 +1,19 @@
 package com.example.diceroller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val rolledButton: Button = findViewById(R.id.button)
+        rolledButton.setOnClickListener {
+            Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
