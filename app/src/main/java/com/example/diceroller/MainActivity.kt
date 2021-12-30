@@ -17,18 +17,23 @@ class MainActivity : AppCompatActivity() {
 
         val rolledButton: Button = findViewById(R.id.button)
         rolledButton.setOnClickListener { rollDice() }
+
+        // Rzuć kostką kiedy aplikacja zostanie uruchomiona
+        rollDice()
     }
 
     /**
      * Rzuć kostkami i wyświetl rezultat na ekranie.
      */
     private fun rollDice() {
-        // Tworzenie dwóch kostek 6-ściennych i rzucenie nimi.
+        // Tworzenie kostki 6-ściennej i rzucenie nią
         val dice = Dice(6)
         val diceRoll = dice.roll()
 
+        // Znajdź ImagView z pliku wartsw
         val diceImage: ImageView = findViewById(R.id.imageView)
 
+        // Ustaw któe identyfikatory obrazu będą wyświetlone w zależności od rzutu kostką
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -38,7 +43,11 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
+        // Zaktualizuj ImageView poprawnym identyfikatorem obazu kostki.
         diceImage.setImageResource(drawableResource)
+
+        // Zaktualizuj opis zawartości.
+        diceImage.contentDescription = diceRoll.toString()
     }
 }
 
